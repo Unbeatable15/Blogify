@@ -1,0 +1,73 @@
+<%- include('partials/header',{ isLoggedIn, username }); -%>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    /* Center the loader container */
+    .loader-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: none; /* Initially hide the loader */
+    }
+
+    /* Style the white background box */
+    .loader-box {
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    }
+
+    /* Define the loader animation */
+    .loader {
+        border: 4px solid #f3f3f3; /* Light grey */
+        border-top: 4px solid #3498db; /* Blue */
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 2s linear infinite; /* Animation name, duration, timing function, and iteration count */
+        margin: auto;
+    }
+
+    @keyframes spin {
+        0% { transform: rotate(0deg); } /* Start at 0 degrees */
+        100% { transform: rotate(360deg); } /* End at 360 degrees (full rotation) */
+    }
+
+  </style>
+  <div class="container" style="display: flex; align-items: center;">
+  <div id="loadingIndicator" class="loader-container">
+    <div class="loader-box">
+        <div class="loader"></div>
+    </div>
+  </div>
+  <div id="signupForm1">
+    <h2>User Login</h2>
+    <form id="signupForm" action="/login" method="post">
+      
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required><br><br>
+      
+      <input type="submit" value="Login">
+    </form>
+    
+    <div id="errorMessage" style="color: red; margin-top: 20px; text-align: center;"></div>
+  </div>
+</div>
+
+  <script src="/login_script.js">
+  </script>
+</body>
+</html>

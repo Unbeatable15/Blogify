@@ -1,0 +1,31 @@
+<%- include('partials/header',{ isLoggedIn, username }); -%>
+<style>
+    /* Apply styles to the contact header */
+    h1 {
+      color: #333; /* Change the color */
+      text-align: center; /* Center-align the heading */
+      font-size: 2em; /* Adjust the font size */
+    }
+
+    /* Apply styles to the contact information paragraphs */
+    .contact-info {
+      margin: 10px 0; /* Add space between paragraphs */
+      font-size: 1.2em; /* Adjust the font size */
+      /* Add more specific styles here for the contact information */
+    }
+
+    /* Style specific paragraphs */
+    .contact-info:nth-of-type(1) {
+      font-weight: bold; /* Make the first paragraph bold */
+    }
+
+  </style>
+
+<h1>Contact</h1>
+<p class="contact-info"><%= contactStart %></p>
+<p class="contact-info">MITAOE</p>
+<p class="contact-info">Student</p>
+<p class="contact-info">Phone number - 8421233996</p>
+<p class="contact-info">Email - ajinkya15@gmail.com</p>
+
+<%- include('partials/footer'); -%>

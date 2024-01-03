@@ -1,0 +1,171 @@
+.container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+.navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+}
+.navbar-nav  li a:hover {
+    color: #1abc9c !important;
+}
+
+.footer-padding {
+	padding-bottom: 60px;
+}
+
+.footer {
+	position:fixed;
+	text-align: center;
+	bottom: 0px;
+
+	width: 100%;
+	height: 60px;
+	background-color: #1abc9c;
+}
+
+.footer p {
+	margin-top: 25px;
+	font-size: 12px;
+  color: #fff;
+}
+
+#signupForm1 {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  margin: 20px auto; /* Sets top and bottom margin to 10px and centers horizontally */
+}
+  #signupForm {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 30px; /* Increased padding */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Adjust the width if needed */
+    max-width: 100%; /* Ensure it doesn't exceed the viewport */
+  }
+  
+  #title {
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
+    text-align: center;
+    margin-top: 5%;
+  }
+
+  h2 {
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+  }
+  
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+  .welcome-msg {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  /* Home Section */
+  .home-section {
+    margin-bottom: 40px;
+  }
+  
+  /* Blog Posts */
+  .blog-post {
+    margin-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 0px;
+    padding-bottom: 20px;
+    box-shadow: 0 1em 1em -1em rgba(0, 0, 0, .25);
+  }
+  
+  .blog-post h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .blog-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .preview {
+    margin-bottom: 10px;
+  }
+  
+  .read-more {
+    text-decoration: none;
+    color: #4285f4;
+    font-weight: bold;
+  }
+  
+  /* Divider */
+  .divider {
+    border-style: dotted none none;
+    height: 10px; /* Height of the divider */
+    /* margin: 20px 0; */
+    width: 10%; /* Adjust the width as needed */
+    overflow: hidden;
+    background-color: #fff; /* Background color to hide the line */
+    margin-top: 20px;
+    margin-bottom: 0px;
+    border-top-width: 5px;
+  }
+  
+
+  
+  .blog-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .author strong {
+    font-weight: bold;
+  }
+  
+  .blog-post h2 {
+    text-transform: uppercase;
+  }
+  

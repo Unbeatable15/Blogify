@@ -1,0 +1,41 @@
+<%- include('partials/header', { isLoggedIn, username }); -%>
+
+<div class="container">
+  <% if (isLoggedIn) { %>
+    <h1 class="welcome-msg" >WELCOME <%= username %></h1>
+  <% } %>
+
+  <section class="home-section">
+    <h1>Home</h1>
+    <p><%= homeContent %></p>
+    <hr class="divider" />
+    <div class="blog-posts">
+      <% posts.forEach(function(blog) { %>
+        <div class="blog-post">
+          <h2 style="text-transform: uppercase;"><%= blog.title %></h2>
+          <div class="blog-meta">
+            <p class="author"><strong><%= blog.author %></strong></p>
+            <p class="timestamp"><span class="formatted-date"><%= blog.created_at %></span></p>
+          </div>
+          <p class="preview"><%= blog.content.slice(0, 100) + "..." %></p>
+          <% const link = "/post/" + blog.id %>
+          <a href="<%= link %>" class="read-more">Read more</a>
+        </div>
+        <!-- <hr class="divider" /> -->
+      <% }) %>
+    </div>
+  </section>
+</div>
+
+<%- include('partials/footer'); -%>
+
+<script src="/dateFormatter.js"></script>
+
+<script>
+  const formattedDateElements = document.querySelectorAll('.formatted-date');
+  formattedDateElements.forEach(element => {
+    const dateString = element.textContent.trim();
+    const formattedDate = formatDate(dateString);
+    element.textContent = formattedDate;
+  });
+</script>

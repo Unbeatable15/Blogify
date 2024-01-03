@@ -1,0 +1,46 @@
+<%- include('partials/header',{ isLoggedIn, username }); -%>
+<style>
+    /* Assuming 'post-container' is the main container for the post */
+.post-container h1 {
+  text-align: center;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.post-container p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.post-container .timestamp {
+  font-style: italic;
+  color: #666;
+  font-weight: bold;
+}
+.formatted-date {
+  font-weight: bold;
+  /* Add other desired styles */
+}
+
+</style>
+<div class="post-container">
+  <h1 style="text-transform: uppercase;"><%= posts.title %></h1>
+  <p><strong>Author: <%= posts.author %></p></strong>
+  <p class="timestamp"><span class="formatted-date">Created At: <%= posts.created_at %></span></p>
+  <p><%= posts.content %></p>
+</div>
+
+<%- include('partials/footer'); -%>
+
+
+<script src="/dateFormatter.js"></script>
+
+<script>
+  const formattedDateElements = document.querySelectorAll('.formatted-date');
+  formattedDateElements.forEach(element => {
+    const dateString = element.textContent.trim();
+    const formattedDate = formatDate(dateString);
+    element.textContent = formattedDate;
+  });
+</script>
