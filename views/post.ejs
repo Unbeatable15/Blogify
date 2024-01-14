@@ -29,6 +29,8 @@
   <p><strong>Author: <%= posts.author %></p></strong>
   <p class="timestamp"><span class="formatted-date">Created At: <%= posts.created_at %></span></p>
   <p><%= posts.content %></p>
+  <h1 style="text-transform: uppercase; margin-top: 20px;">Summary</h1>
+  <p><%= posts.summary%></p>
 </div>
 
 <%- include('partials/footer'); -%>

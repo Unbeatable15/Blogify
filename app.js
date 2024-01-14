@@ -7,6 +7,7 @@ const ejs = require("ejs");
 const session = require('express-session');
 const bcrypt = require('bcryptjs');;
 var _ = require('lodash');
+const OpenAI = require('openai');
 
 const homeStartingContent = "Hello guys, My name is Ajinkya Kshatriya, I am from Pune, I have created this blogging website for fun.You can go to the Compose section and add title and text which you want to post and click on publish button. In about section there is information about me and in contact section there is contact detail about me(which are fake So don't try to contact me).Post whatever you want!!✌️";
 const aboutContent = "My Name is Ajinkya Kshatriya. I have created this website for fun if there is anything you want to tell be about this website there is no need to tell as this is just small website with no particular major funcionality it is just for bloging and You can download and edit any file you want to edit as per your choice and you can deploy it. Keep Coding👨‍💻";
@@ -27,6 +28,10 @@ app.use(session({
   saveUninitialized: false,
 }));
 
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+})
+
 
 function setVariables(req) {
   const isLoggedIn = req.session.user ? true : false;
@@ -35,6 +40,19 @@ function setVariables(req) {
     isLoggedIn,
     username
   };
+}
+
+
+async function generateSummary(text) {
+  const response = await openai.chat.completions.create({
+    model: "gpt-3.5-turbo",
+    messages: [{
+      "role": "user",
+      "content": `Summarize the following text:\n${text}`
+    }]
+  })
+
+  return response.choices[0].message.content;
 }
 
 app.get("/", async (req, res) => {
@@ -106,10 +124,12 @@ app.post("/compose", async (req, res) => {
   } = req.body;
   const username = req.session.user ? req.session.user.name : 'Anonymous';
 
+  const summary = await generateSummary(postBody);
+
   try {
     const client = await pool.connect();
-    const query = 'INSERT INTO blog_posts (title, content, author) VALUES ($1, $2, $3)';
-    const values = [postTitle, postBody, username];
+    const query = 'INSERT INTO blog_posts (title, content, author, summary) VALUES ($1, $2, $3, $4)';
+    const values = [postTitle, postBody, username, summary];
 
     await client.query(query, values);
     client.release();
