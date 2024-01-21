@@ -22,7 +22,7 @@ This project is a simple blogging website created using Node.js, Express, EJS, a
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Unbeatable15/Daily_Journal.git
+   git clone https://github.com/Unbeatable15/Blogify.git
    ```
 
 2. Install dependencies:
